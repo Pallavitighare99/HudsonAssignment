@@ -1,0 +1,45 @@
+<div>
+    <app-header></app-header>
+    <span>Welcome {{ userName }}</span>
+    <button mat-raised-button color="accent" (click)="onLogout()">Logout</button>
+</div>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <mat-select [(ngModel)]="selectedCountry" name="selectedCountry">
+            <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Other Country</mat-label>
+        <input matInput type="text" [(ngModel)]="otherCountry" name="otherCountry" />
+    </mat-form-field> -->
+    <button mat-raised-button color="primary" (click)="onSearch()">Search</button>
+</div>
+<div>
+    <span>Search count: {{ searchCount }}</span>
+</div>
+<mat-table [dataSource]="universities">
+    <!-- Name column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let university">{{ university.name }}</mat-cell>
+    </ng-container>
+
+    <!-- State/Province column -->
+    <ng-container matColumnDef="stateProvince">
+        <mat-header-cell *matHeaderCellDef>State/Province</mat-header-cell>
+        <mat-cell *matCellDef="let university">{{ university['state-province'] || '-' }}</mat-cell>
+    </ng-container>
+
+    <!-- Domain column -->
+    <ng-container matColumnDef="domain">
+        <mat-header-cell *matHeaderCellDef>Domain</mat-header-cell>
+        <mat-cell *matCellDef="let university">
+            <a [href]="university.domains[0]" target="_blank">{{ university.domains[0] }}</a>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
