@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   name: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
     this.authService.login(this.name);

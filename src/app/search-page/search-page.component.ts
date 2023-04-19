@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UniversityServiceService, University } from '../university-service.service'
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-search-page',
@@ -24,12 +25,15 @@ export class SearchPageComponent implements OnInit {
   otherCountry: string = '';
   universities: University[] = [];
   displayedColumns: string[] = ['name', 'stateProvince', 'domain'];
+  showTable = false;
+  isLoading = false;
+
 
   constructor(
     private authService: AuthService,
     private universityService: UniversityServiceService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userName = this.authService.getUserName();
@@ -42,7 +46,7 @@ export class SearchPageComponent implements OnInit {
 
   onSearch(): void {
     this.searchCount++;
-
+    this.isLoading = true;
     if (this.otherCountry.trim()) {
       this.selectedCountry = this.otherCountry;
     }
@@ -50,8 +54,13 @@ export class SearchPageComponent implements OnInit {
     this.universityService
       .getUniversitiesByCountry(this.selectedCountry)
       .subscribe((universities) => {
+        this.isLoading = false;
         this.universities = universities;
       }
-    );
+      );
+      
+    this.showTable = true;
+
   }
+
 }
