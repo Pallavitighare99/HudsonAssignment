@@ -1,12 +1,10 @@
 <div>
     <app-header></app-header>
-    <span>Welcome {{ userName }}</span>
-    <button mat-raised-button color="accent" (click)="onLogout()">Logout</button>
 </div>
 <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" style="width: 90vh; margin: 5vh;">
         <mat-label>Country</mat-label>
-        <mat-select [(ngModel)]="selectedCountry" name="selectedCountry">
+        <mat-select [(ngModel)]="selectedCountry" name="selectedCountry" >
             <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
         </mat-select>
     </mat-form-field>
@@ -14,7 +12,7 @@
         <mat-label>Other Country</mat-label>
         <input matInput type="text" [(ngModel)]="otherCountry" name="otherCountry" />
     </mat-form-field> -->
-    <button mat-raised-button color="primary" (click)="onSearch()">Search</button>
+    <button mat-raised-button (click)="onSearch()" class="searchButton">Search</button>
 </div>
 <div>
     <span>Search count: {{ searchCount }}</span>
