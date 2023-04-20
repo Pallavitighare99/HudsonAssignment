@@ -39,8 +39,36 @@
     animation: spin 1s ease-in-out infinite;
 }
 
+.dropdown {
+    width: 90vh;
+    margin-left: 5vh;
+    margin-top: 5vh;
+    margin-right: 5vh;
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .dropdown {
+        width: 46vh;
+        margin: 8% 2% 3% 2%;
+    }
+    .searchButton {
+        height: 40px;
+        width: 46vh;
+        background-color: #3f51b5;
+        border: none;
+        color: white;
+        font-size: medium;
+        margin: 0% 2% 8% 2%;
+    }
+    .counter {
+        margin-left: 30%;
+        font-size: large;
+        font-weight: bold;
     }
 }

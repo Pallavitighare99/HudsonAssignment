@@ -2,7 +2,7 @@
     <app-header></app-header>
 
     <div>
-        <mat-form-field appearance="fill" style="width: 90vh; margin-left: 5vh; margin-top: 5vh; margin-right: 5vh;">
+        <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Country</mat-label>
             <mat-select [(ngModel)]="selectedCountry" name="selectedCountry">
                 <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
