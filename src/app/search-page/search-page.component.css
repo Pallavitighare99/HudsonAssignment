@@ -1,11 +1,10 @@
 .searchButton {
-    height: 50px;
+    height: 40px;
     width: 20vh;
     background-color: #3f51b5;
     border: none;
     color: white;
     font-size: medium;
-    
 }
 
 .counter {
