@@ -1,15 +1,15 @@
 .example-form {
   min-width: 150px;
   max-width: 500px;
-  width: 100%;
+  width: 100vh;
 }
 
 .example-full-width {
-  width: 100%;
+  width: 65vh;
 }
 
 .logo {
-  margin-left: 5%;
+  margin-left: 4vh
 }
 
 .main {
@@ -18,7 +18,7 @@
 }
 
 .card {
-  width: 50%;
+  width: 70vh;
 }
 
 .button {
@@ -45,9 +45,9 @@
   font-size: medium;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   .logo {
-   width: 90%;
+   width: 50vh;
   }
   
   .main {

@@ -1,6 +1,5 @@
 <div>
     <app-header></app-header>
-
     <div>
         <mat-form-field appearance="fill" class="dropdown">
             <mat-label>Country</mat-label>
@@ -8,13 +7,12 @@
                 <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
             </mat-select>
         </mat-form-field>
-
-        <!-- <mat-form-field appearance="fill">
-        <mat-label>Other Country</mat-label>
-        <input matInput type="text" [(ngModel)]="otherCountry" name="otherCountry" />
-    </mat-form-field> -->
+        <!-- other country -->
+        <mat-form-field appearance="fill" class="dropdown">
+            <mat-label>Other Country</mat-label>
+            <input matInput type="text" [(ngModel)]="otherCountry" name="otherCountry" />
+        </mat-form-field>
         <button mat-raised-button (click)="onSearch()" class="searchButton">Search</button>
-
     </div>
     <div class="counter">
         <span>Search count: {{ searchCount }}</span>

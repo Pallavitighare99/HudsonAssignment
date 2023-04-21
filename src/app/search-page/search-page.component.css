@@ -40,7 +40,7 @@
 }
 
 .dropdown {
-    width: 90vh;
+    width: 80vh;
     margin-left: 5vh;
     margin-top: 5vh;
     margin-right: 5vh;
@@ -52,7 +52,7 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     .dropdown {
         width: 46vh;
         margin: 8% 2% 3% 2%;

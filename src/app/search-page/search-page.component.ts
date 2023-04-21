@@ -50,7 +50,6 @@ export class SearchPageComponent implements OnInit {
     if (this.otherCountry.trim()) {
       this.selectedCountry = this.otherCountry;
     }
-
     this.universityService
       .getUniversitiesByCountry(this.selectedCountry)
       .subscribe((universities) => {
@@ -58,11 +57,7 @@ export class SearchPageComponent implements OnInit {
         this.universities = universities;
       }
       );
-      
     this.showTable = true;
-
   }
-
 }
 
-//
