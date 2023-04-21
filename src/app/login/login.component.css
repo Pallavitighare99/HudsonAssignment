@@ -9,7 +9,7 @@
 }
 
 .logo {
-  margin-left: 4vh
+  margin-left: 3vw
 }
 
 .main {
@@ -27,8 +27,8 @@
 
 .continue {
   background-color: #3f51b5;
-  height: 50px;
-  width: 45%;
+  height: 7vh;
+  width: 27vh;
   border-radius: 10px;
   border: none;
   color: white;
@@ -37,8 +37,8 @@
 
 .cancel {
   background-color: #3f51b5;
-  height: 50px;
-  width: 45%;
+  height: 7vh;
+  width: 27vh;
   border-radius: 10px;
   border: none;
   color: white;

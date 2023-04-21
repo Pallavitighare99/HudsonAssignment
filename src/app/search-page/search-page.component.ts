@@ -13,6 +13,7 @@ export class SearchPageComponent implements OnInit {
   userName: string | null = null;
   searchCount: number = 0;
   countries: string[] = [
+    'Select Country',
     'United States',
     'Canada',
     'United Kingdom',
