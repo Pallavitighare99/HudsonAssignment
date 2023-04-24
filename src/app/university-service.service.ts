@@ -23,8 +23,9 @@ export class UniversityServiceService {
   constructor(private http: HttpClient) { }
 
   getUniversitiesByCountry(country: string): Observable<University[]> {
+    // const offset = pageIndex * pageSize;
     return this.http.get<University[]>(`${this.API_BASE_URL}?country=${country}`);
-  }
+}
 
   getUniversitiesByCountryAndName(country: string, name: string): Observable<University[]> {
     return this.http.get<University[]>(`${this.API_BASE_URL}?country=${country}&name=${name}`);

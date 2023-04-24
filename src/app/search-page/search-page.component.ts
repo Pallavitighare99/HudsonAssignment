@@ -28,6 +28,11 @@ export class SearchPageComponent implements OnInit {
   displayedColumns: string[] = ['name', 'stateProvince', 'domain'];
   showTable = false;
   isLoading = false;
+  length: number = 0;
+  pageSize: number = 10
+  pageSizeOptions: number[] = [5, 10, 15];
+  allUniversities: University[] = [];
+
 
 
   constructor(
@@ -38,6 +43,7 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userName = this.authService.getUserName();
+    this.searchCount = Number(localStorage.getItem('searchCount')) || 0;
   }
 
   onLogout(): void {
@@ -47,6 +53,7 @@ export class SearchPageComponent implements OnInit {
 
   onSearch(): void {
     this.searchCount++;
+    localStorage.setItem('searchCount', this.searchCount.toString());
     this.isLoading = true;
     if (this.otherCountry.trim()) {
       this.selectedCountry = this.otherCountry;
@@ -55,10 +62,18 @@ export class SearchPageComponent implements OnInit {
       .getUniversitiesByCountry(this.selectedCountry)
       .subscribe((universities) => {
         this.isLoading = false;
-        this.universities = universities;
-      }
-      );
+        this.allUniversities = universities;
+        this.universities = this.allUniversities.slice(0, this.pageSize);
+        this.length = universities.length; // Set the length property
+      });
     this.showTable = true;
   }
+  
+  onPageChange(event: PageEvent): void {
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = startIndex + event.pageSize;
+    this.universities = this.allUniversities.slice(startIndex, endIndex);
+  }
+  
 }
 

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private readonly USER_KEY = 'user';
+ private readonly searchCount = 'searchCount'
 
   constructor() {}
 
@@ -15,6 +16,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.USER_KEY);
+    localStorage.removeItem(this.searchCount)
   }
 
   isAuthenticated(): boolean {
